@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../constants/colors.dart';
+import '../../constants/colors.dart';
 
 class Heading2Bold extends StatelessWidget {
   const Heading2Bold({

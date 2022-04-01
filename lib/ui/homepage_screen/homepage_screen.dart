@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:kito_app/constants/images.dart';
-import 'package:kito_app/models/heading2Bold.dart';
 import '../../constants/colors.dart';
-import '../../models/heading5Bold.dart';
-import '../components/home_page_content_title.dart';
+import '../components/big_poster.dart';
+import '../components/heading2Bold.dart';
+import '../components/heading5Bold.dart';
 import '../components/home_page_devider.dart';
 import '../components/home_page_notification.dart';
 
 import '../components/recommend_item_card.dart';
+import '../components/top_classification.dart';
 
 class HomePage extends StatelessWidget {
   List<String> _moreInfor = ['FAQS', 'About us', 'Contact', 'Product Care'];
@@ -43,41 +44,12 @@ class HomePage extends StatelessWidget {
           child: Column(
             children: [
               const HomePageNotification(),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: const [
-                  ContentTitle(
-                    title: 'Everyone',
-                    isChecked: true,
-                  ),
-                  ContentTitle(
-                    title: 'Women',
-                    isChecked: false,
-                  ),
-                  ContentTitle(
-                    title: 'Men',
-                    isChecked: false,
-                  )
-                ],
+              TopClassification(
+                isEveryone: true,
               ),
-              Container(
-                height: 312.h,
-                child: Stack(
-                  children: [
-                    Image.asset(AppImages.bigPoster),
-                    Center(
-                      child: Text(
-                        'new in'.toUpperCase(),
-                        style: TextStyle(
-                          color: AppColor.secondColor,
-                          fontFamily: 'Karla',
-                          fontWeight: FontWeight.w400,
-                          fontSize: 20.sp,
-                        ),
-                      ),
-                    )
-                  ],
-                ),
+              BigPoster(
+                image: Image.asset(AppImages.bigPoster),
+                title: 'new in',
               ),
               Container(
                 color: Color(0xff9CACBF),
@@ -173,7 +145,7 @@ class HomePage extends StatelessWidget {
                 ),
               ),
               Container(
-                padding: EdgeInsets.only(top: 18.h),
+                padding: EdgeInsets.only(top: 18.h, bottom: 24.h),
                 child: Text(
                   ' @2021 kito Ltd'.toUpperCase(),
                   style: TextStyle(
@@ -188,34 +160,74 @@ class HomePage extends StatelessWidget {
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
-        selectedItemColor: Colors.black,
-        unselectedItemColor: Colors.black,
+        type: BottomNavigationBarType.fixed,
+        fixedColor: AppColor.primaryColor,
         items: [
           BottomNavigationBarItem(
-            icon: Icon(
-              Icons.home_max_outlined,
+            icon: Container(
+              height: 32.h,
+              width: 32.w,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: Colors.black,
+              ),
+              margin: EdgeInsets.symmetric(vertical: 6.h),
+              child: Image.asset(
+                AppImages.homeIcon,
+                color: Colors.white,
+              ),
             ),
             label: 'Home'.toUpperCase(),
           ),
           BottomNavigationBarItem(
-            icon: Icon(
-              Icons.shopping_bag_outlined,
+            icon: Container(
+              height: 32.h,
+              width: 32.w,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+              ),
+              margin: EdgeInsets.symmetric(vertical: 6.h),
+              child: Image.asset(AppImages.shoppingIcon),
             ),
-            label: 'Shop'.toUpperCase(),
+            label: 'Shopping'.toUpperCase(),
           ),
           BottomNavigationBarItem(
-              icon: Icon(
-                Icons.checklist_outlined,
+            icon: Container(
+              height: 32.h,
+              width: 32.w,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
               ),
-              label: 'Wishlist'.toUpperCase()),
+              margin: EdgeInsets.symmetric(vertical: 6.h),
+              child: Image.asset(AppImages.wishlistIcon),
+            ),
+            label: 'Wishlist'.toUpperCase(),
+          ),
           BottomNavigationBarItem(
-              icon: Icon(
-                Icons.manage_accounts_outlined,
+            icon: Container(
+              height: 32.h,
+              width: 32.w,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
               ),
-              label: 'account'.toUpperCase()),
+              margin: EdgeInsets.symmetric(vertical: 6.h),
+              child: Image.asset(AppImages.accountIcon),
+            ),
+            label: 'Account'.toUpperCase(),
+          ),
         ],
-        currentIndex: 0,
-        onTap: (index) {},
+        selectedLabelStyle: TextStyle(
+          color: AppColor.primaryColor,
+          fontFamily: 'Karla',
+          fontSize: 8.sp,
+          fontWeight: FontWeight.w700,
+        ),
+        unselectedLabelStyle: TextStyle(
+          color: AppColor.primaryColor,
+          fontFamily: 'Karla',
+          fontSize: 8.sp,
+          fontWeight: FontWeight.w700,
+        ),
       ),
     );
   }

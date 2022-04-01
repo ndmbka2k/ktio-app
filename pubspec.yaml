@@ -47,7 +47,8 @@ flutter:
 
   assets:
     - assets/images/homepageEveryone/
-  #   - images/a_dot_ham.jpeg
+    - assets/images/icons/
+    - assets/images/Women/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

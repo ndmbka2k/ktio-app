@@ -29,4 +29,20 @@ class AppImages {
     AppImages.anh9,
     AppImages.anh10,
   ];
+
+  static const String homeIcon = 'assets/images/icons/homeIcon.png';
+  static const String shoppingIcon = 'assets/images/icons/shoppingIcon.png';
+  static const String wishlistIcon = 'assets/images/icons/wishlistIcon.png';
+  static const String accountIcon = 'assets/images/icons/accountIcon.png';
+
+  static const String bigPosterWomen = 'assets/images/Women/bigPosterWomen.png';
+  static const String anhWomen1 = 'assets/images/Women/anh1.png';
+  static const String anhWomen2 = 'assets/images/Women/anh2.png';
+
+  static const List<String> imageWomenSection1 = [
+    AppImages.anhWomen1,
+    AppImages.anhWomen2,
+    AppImages.anhWomen1,
+    AppImages.anhWomen2
+  ];
 }
